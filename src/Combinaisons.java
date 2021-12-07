@@ -24,209 +24,147 @@ public class Combinaisons{
     
     //S1
     
-    public void setUn(int de1, int de2, int de3, int de4, int de5) {
-        if (de1 == 1) {
-            un+= 1;
-        }
-        if (de2 == 1) {
-            un+= 1;
-        }
-        if (de3 == 1) {
-        	un+= 1;
-        }
-        if (de4 == 1) {
-        	un+= 1;
-        }
-        if (de5 == 1) {
-        	un+= 1;
-        }
+    public int countUp(int valeur, De[] des){
+    	//renvoie le nombre n de dés qui ont la valeur valeur.
+    	int nbValeur=0;
+    	for(int i=0; i<5; i++) {
+    		if(des[i].getValeur()== valeur)
+    			nbValeur++;
+    	}
+    	return nbValeur;		
     }
     
-    //public void Un(De[] des) {
-    	//un= 1* des.countUp(1);
-    //}
     
-    public void setDeux(int de1, int de2, int de3, int de4, int de5) {
-        if (de1 == 2) {
-        	deux+= 2;
-        }
-        if (de2 == 2) {
-        	deux+= 2;
-        }
-        if (de3 == 2) {
-        	deux+= 2;
-        }
-        if (de4 == 2) {
-        	deux+= 2;
-        }
-        if (de5 == 2) {
-        	deux+= 2;
-        }
+    public void setUn(De[] des) {
+    	un= 1* countUp(1,des);
     }
     
-    public void setTrois(int de1, int de2, int de3, int de4, int de5) {
-        if (de1 == 3) {
-        	trois+= 3;
-        }
-        if (de2 == 3) {
-        	trois+= 3;
-        }
-        if (de3 == 3) {
-        	trois+= 3;
-        }
-        if (de4 == 3) {
-        	trois+= 3;
-        }
-        if (de5 == 3) {
-        	trois+= 3;
-        }
+    public void setDeux(De[]des) {
+    	deux=2*countUp(2,des);
     }
     
-    public void setQuatre(int de1, int de2, int de3, int de4, int de5) {
-        if (de1 == 4) {
-            quatre+= 4;
-        }
-        if (de2 == 4) {
-        	quatre+= 4;        
-        }
-        if (de3 == 4) {
-        	quatre+= 4;        
-        }
-        if (de4 == 4) {
-        	quatre+= 4;        
-        }
-        if (de5 == 4) {
-        	quatre+= 4;        
-        }
+    public void setTrois(De[] des) {
+       trois=3*countUp(3,des);
     }
     
-    public void setCinq(int de1, int de2, int de3, int de4, int de5) {
-        if (de1 == 5) {
-            cinq+= 5;
-        }
-        if (de2 == 5) {
-            cinq+= 5;
-        }
-        if (de3 == 5) {
-            cinq+= 5;
-        }
-        if (de4 == 5) {
-            cinq+= 5;
-        }
-        if (de5 == 5) {
-            cinq+= 5;
-        }
+    public void setQuatre(De[] des) {
+    	quatre=4*countUp(4,des);
     }
     
-    public void setSix(int de1, int de2, int de3, int de4, int de5) {
-        if (de1 == 6) {
-            six+= 6;
-        }
-        if (de2 == 6) {
-            six+= 6;
-        }
-        if (de3 == 6) {
-            six+= 6;
-        }
-        if (de4 == 6) {
-            six+= 6;
-        }
-        if (de5 == 6) {
-            six+= 6;
-        }
+    public void setCinq(De[] des) {
+    	cinq=5*countUp(5,des);
+    }
+    
+    public void setSix(De[] des) {
+    	six=6*countUp(6,des);
     }
     
     // S2
 
-    public void setBrelan(int de1, int de2, int de3, int de4, int de5) {
-        //134, 135, 145, 245
-        if ((de1 == de3 && de1 == de4) || (de1 == de3 && de1 == de5) || 
-        		(de1 == de4 && de1 == de5) || (de2 == de4 && de2 == de5) || 
-        		(de1 == de2 && de1 == de3) || (de1 == de2 && de1 == de4) || 
-        		(de1 == de2 && de1 == de5) || (de2 == de3 && de2 == de4) || 
-        		(de2 == de3 && de2 == de5) || (de3 == de4 && de3 == de5)) {
-            brelan = de1 + de2 + de3 + de4 + de5;
+    public void setBrelan(De[]des) {
+        //3 faces pareilles
+        if ((countUp(1,des)==3) || (countUp(2,des)==3) || (countUp(3,des)==3) 
+        		|| (countUp(4,des)==3) || (countUp(5,des)==3) || (countUp(6,des)==3)){
+        	int somme=0;
+            for(int i=0; i<des.length;i++) {
+                somme = somme + i;
+            }
+            brelan = somme;
             aBrelan = true;
         } else {
             aBrelan = false;
         }
     }
     
-    public void setCarre(int de1, int de2, int de3, int de4, int de5) {
-        //1234, 1345, 1245, 1235, 2345
-        if ((de1 == de2 && de1 == de3 && de1 == de4) || 
-        		(de1 == de3 && de1 == de4 && de1 == de5) || 
-        		(de1 == de2 && de1 == de4 && de1 == de5) || 
-        		(de1 == de2 && de1 == de3 && de1 == de5) || 
-        		(de2 == de3 && de2 == de4 && de2 == de5)) {
-            carre = de1 + de2 + de3 + de4 + de5;
+    public void setCarre(De[]des) {
+        //4 faces pareilles
+        if ((countUp(1,des)==4) || (countUp(2,des)==4) || (countUp(3,des)==4) 
+        		|| (countUp(4,des)==4) || (countUp(5,des)==4) || (countUp(6,des)==4)){
+        	int somme=0;
+            for(int i=0; i<des.length;i++) {
+                somme = somme + i;
+            }
+            carre = somme;
             aCarre = true;
         } else {
             aCarre = false;
         }
     }
     
-    public void setFull(int de1, int de2, int de3, int de4, int de5) {
-        // 134 & 25, 135 & 24, 145 & 23, 245 & 13
-        if ((de1 == de3 && de1 == de4 && de1 != de2 && de2 == de5) || 
-        		(de1 == de3 && de1 == de5 && de1 != de2 && de2 == de4) || 
-        		(de1 == de4 && de1 == de5 && de1 != de2 && de2 == de3) || 
-        		(de2 == de4 && de2 == de5 && de2 != de1 && de1 == de3) || 
-        		(de1 == de2 && de1 == de3 && de1 != de4 && de4 == de5) || 
-        		(de1 == de2 && de1 == de4 && de1 != de3 && de3 == de5) ||
-        		(de1 == de2 && de1 == de5 && de1 != de3 && de3 == de4) || 
-        		(de2 == de3 && de2 == de4 && de2 != de1 && de1 == de5) || 
-        		(de2 == de3 && de2 == de5 && de2 != de1 && de1 == de4) || 
-        		(de3 == de4 && de3 == de5 && de3 != de1 && de1 == de2)) {
+   
+    
+    public void setFull(De[]des) {
+        // un brelan + une paire
+        if (((countUp(1,des)==3) || (countUp(2,des)==3) || (countUp(3,des)==3) 
+        		|| (countUp(4,des)==3) || (countUp(5,des)==3) || (countUp(6,des)==3)) 
+        		&& ((countUp(1,des)==2) || (countUp(2,des)==2) || (countUp(3,des)==2) 
+        		|| (countUp(4,des)==2) || (countUp(5,des)==2) || (countUp(6,des)==2))){
+        	int somme=0;
+            for(int i=0; i<des.length;i++) {
+                somme = somme + i;
+            } 
             aFull = true;
         } else {
             aFull = false;
         }
     }
     
-    public void setPsuite(int de1, int de2, int de3, int de4, int de5) {
+    public void setPsuite(De[]des) {
     	// 1234, 2345, 3456
-        if ((de1 == 1 || de2 == 1 || de3 == 1 || de4 == 1 || de5 == 1) && 
-        		(de1 == 2 || de2 == 2 || de3 == 2 || de4 == 2 || de5 == 2) && 
-        		(de1 == 3 || de2 == 3 || de3 == 3 || de4 == 3 || de5 == 3) && 
-        		(de1 == 4 || de2 == 4 || de3 == 4 || de4 == 4 || de5 == 4)) {
+    	int cpt1=0, cpt2=0, cpt3=0, cpt4=0, cpt5=0, cpt6=0;
+    	for(int i=0; i<des.length;i++) {
+    		if (des[i].getValeur()==1)
+    			cpt1++;
+    		if (des[i].getValeur()==2)
+    			cpt2++;
+    		if (des[i].getValeur()==3)
+    			cpt3++;
+    		if (des[i].getValeur()==4)
+    			cpt4++;
+    		if (des[i].getValeur()==5)
+    			cpt5++;
+    		else
+    			cpt6++;	
+    	}
+        if ((cpt1==1) && (cpt2==1) && (cpt3==1) && (cpt4==1)) {
             aPetiteSuite = true;
-        } else if ((de1 == 2 || de2 == 2 || de3 == 2 || de4 == 2 || de5 == 2) && 
-        		(de1 == 3 || de2 == 3 || de3 == 3 || de4 == 3 || de5 == 3) && 
-        		(de1 == 4 || de2 == 4 || de3 == 4 || de4 == 4 || de5 == 4) && 
-        		(de1 == 5 || de2 == 5 || de3 == 5 || de4 == 5 || de5 == 5)) {
+        } else if ((cpt2==1) && (cpt3==1) && (cpt4==1) && (cpt5==1)) {
         	aPetiteSuite = true;
-        } else if ((de1 == 3 || de2 == 3 || de3 == 3 || de4 == 3 || de5 == 3) && 
-        		(de1 == 4 || de2 == 4 || de3 == 4 || de4 == 4 || de5 == 4) && 
-        		(de1 == 5 || de2 == 5 || de3 == 5 || de4 == 5 || de5 == 5) && 
-        		(de1 == 6 || de2 == 6 || de3 == 6 || de4 == 6 || de5 == 6)) {
+        } else if ((cpt3==1) && (cpt4==1) && (cpt5==1) && (cpt6==1)) {
         	aPetiteSuite = true;
         } else {
         	aPetiteSuite = false;
         }
     }
     
-    public void setGsuite(int de1, int de2, int de3, int de4, int de5) {
-    	// 12345, 23456
-        if ((de1 == 1 || de2 == 1 || de3 == 1 || de4 == 1 || de5 == 1) && 
-        		(de1 == 2 || de2 == 2 || de3 == 2 || de4 == 2 || de5 == 2) && 
-        		(de1 == 3 || de2 == 3 || de3 == 3 || de4 == 3 || de5 == 3) && 
-        		(de1 == 4 || de2 == 4 || de3 == 4 || de4 == 4 || de5 == 4) && 
-        		(de1 == 5 || de2 == 5 || de3 == 5 || de4 == 5 || de5 == 5)) {
+    public void setGsuite(De[]des) {
+    	int cpt1=0, cpt2=0, cpt3=0, cpt4=0, cpt5=0, cpt6=0;
+    	for(int i=0; i<des.length;i++) {
+    		if (des[i].getValeur()==1)
+    			cpt1++;
+    		if (des[i].getValeur()==2)
+    			cpt2++;
+    		if (des[i].getValeur()==3)
+    			cpt3++;
+    		if (des[i].getValeur()==4)
+    			cpt4++;
+    		if (des[i].getValeur()==5)
+    			cpt5++;
+    		else
+    			cpt6++;	
+    	}
+        if ((cpt1==1) && (cpt2==1) && (cpt3==1) && (cpt4==1) && (cpt5==1)) {
             aGrandeSuite = true;
-        } else if ((de1 == 2 || de2 == 2 || de3 == 2 || de4 == 2 || de5 == 2) && 
-        		(de1 == 3 || de2 == 3 || de3 == 3 || de4 == 3 || de5 == 3) && 
-        		(de1 == 4 || de2 == 4 || de3 == 4 || de4 == 4 || de5 == 4) && 
-        		(de1 == 5 || de2 == 5 || de3 == 5 || de4 == 5 || de5 == 5) &&
-        		(de1 == 6 || de2 == 6 || de3 == 6 || de4 == 6 || de5 == 6)) {
+        } else if ((cpt2==1) && (cpt3==1) && (cpt4==1) && (cpt5==1) && (cpt6==1)) {
         	aGrandeSuite = true;
         } else {
         	aGrandeSuite = false;
         }
     }
     
-    public void setYam(int de1, int de2, int de3, int de4, int de5) {
-        if (de1 == de2 && de1 == de3 && de1 == de4 && de1 == de5) {
+    public void setYam(De[]des) {
+    	if ((countUp(1,des)==5) || (countUp(2,des)==5) || (countUp(3,des)==5) 
+        		|| (countUp(4,des)==5) || (countUp(5,des)==5) || (countUp(6,des)==5)){
             aYam = true;
         }
         else{
