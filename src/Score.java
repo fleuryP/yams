@@ -89,7 +89,13 @@ public class Score {
 		}
 		return 0;
 	}
-
+public String toString() {
+		String tab="";
+		for(int i=0; i<grille.length;i++) {
+			tab+= Arrays.deepToString(grille[i])+"\n";
+		}
+		return tab;
+	}
 }
 
 	
