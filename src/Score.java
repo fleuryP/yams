@@ -72,7 +72,21 @@ public class Score {
 	}
 	
 	//a ajouter
-	public int calculTotalJoueur () {
+	public int calculTotalJoueur (String nomJoueur) {
+		int total;
+		for(int j=1;j<=6;j++{
+			if(grille[0][j]==nomJoueur){
+				for(i=1; i<8 ; i++) {
+					total+=grille[i][j];
+				}
+				for(j=10; j<6 ; j++) {
+					total+=grille[i][j];
+				}
+				return total;
+			//peut-être il va faire une erreur car les valeurs d'instanciation sont null.
+			}
+			else Systout.out.println("Il n'y a aucaun joueur ayant ce nom");
+		}
 		return 0;
 	}
 
