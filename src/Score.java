@@ -42,8 +42,41 @@ public class Score {
 		  }
 	}
 	
+
 	public void modifierScore(int ligne, int colonne, String valeur) {
-		grille[ligne][colonne]=valeur;
+		if(casDispo(ligne, colonne)) {
+			grille[ligne][colonne]=valeur;
+		}
+		else {
+			System.out.println("La case est déjà pleine");
+		}
+	}
+	
+	//
+	public boolean casDispo (int ligne, int colonne) {
+		if(grille[ligne][colonne]==null) {
+			return true;
+		}
+		else return false;
+	}
+	
+	
+	//a ajouter
+	public void barrerCase (int ligne, int colonne) {
+		if(casDispo(ligne, colonne)) {
+			grille[ligne][colonne]="0";
+		}
+		else {
+			System.out.println("La case est déjà pleine");
+		}
+	}
+	
+	//a ajouter
+	public int calculTotalJoueur () {
+		return 0;
 	}
 
+}
+
+	
 }
