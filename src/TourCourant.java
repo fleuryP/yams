@@ -1,9 +1,8 @@
-
 import java.util.*;
 
 public class TourCourant {
 	
-    private De[] des;
+    De[] des;
     Score score;
     
     public TourCourant(){
@@ -12,6 +11,15 @@ public class TourCourant {
             des[i] = new De();
         	des[i].setValeur(des[i].lancer());
         }
+    }
+
+    
+    public int totalDes(De[] tabDe) {
+    	int somme=0;
+    	for(int i=0;i<tabDe.length;i++) {
+    		somme+=tabDe[i].getValeur();
+    	}
+    	return somme;
     }
    
     
@@ -46,11 +54,6 @@ public class TourCourant {
 		return tab;
 	}
 	
-	public int totalDes(De[] tabDe) {
-    	int somme=0;
-    	for(int i=0;i<tabDe.length;i++) {
-    		somme+=tabDe[i].getValeur();
-    	}
-    	return somme;
- }
+
 	
+}
