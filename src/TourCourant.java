@@ -3,17 +3,15 @@ import java.util.*;
 
 public class TourCourant {
 	
-	private De[] des;
-    private int[] count;
+    private De[] des;
     Score score;
     
     public TourCourant(){
         des = new De[5];
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < 5; i++) {
             des[i] = new De();
-        lancerDes(); 
-        count = new int[6];
-        updateCount();
+        	des[i].setValeur(des[i].lancer());
+        }
     }
    
     
