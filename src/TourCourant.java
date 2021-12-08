@@ -46,3 +46,11 @@ public class TourCourant {
 		return tab;
 	}
 	
+	public int totalDes(De[] tabDe) {
+    	int somme=0;
+    	for(int i=0;i<tabDe.length;i++) {
+    		somme+=tabDe[i].getValeur();
+    	}
+    	return somme;
+ }
+	
