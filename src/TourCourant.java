@@ -1,3 +1,4 @@
+package version2avecRelance;
 import java.util.*;
 
 public class TourCourant {
@@ -28,6 +29,12 @@ public class TourCourant {
     	
     }
     
+    //à ajouter
+    public int getIndice(De [] tableau, int numDe) {
+    	return Arrays.asList(tableau).indexOf(numDe);
+    	
+    }    
+    
     public String toString() {
 		//affiche le score au joueur afin qu'il selectionne les des à rejouer
 		String res="";
@@ -52,6 +59,20 @@ public class TourCourant {
 			tab[i]=Character.getNumericValue(s.charAt(i)); // on stock chaque caractère dans un tableau
 		}
 		return tab;
+	}
+	
+	public int [] getOccurence (int [] tab) {
+        int [] count = new int[7];
+        /* i : compteur, tmp : stock tmporairement la valeur 
+        à un certain index du tableau tab[]*/
+        int i,tmp = 0;
+        /* tmp agira comme une valeur d'index pour le tableau count 
+        et gardera une trace du nombre d'occurrences de chaque nombre*/
+        for(i = 0; i < tab.length; i++){
+                tmp = tab[i];
+                count[tmp]++;
+        }
+        return count;
 	}
 	
 
