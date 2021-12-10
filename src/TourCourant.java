@@ -44,11 +44,18 @@ public class TourCourant {
 		return res;
 		
 	}
+//	public void relancer(int[] tab) { 
+//		for (int i=0;i<tab.length;i++) { 
+//			if(!(tab[i]==0)){ 
+//				des[tab[i]-1].setValeur(des[tab[i]-1].lancer()); // on relance le dé a la position donnée			
+//				}
+//		}
+//	}
 	public void relancer(int[] tab) { 
 		for (int i=0;i<tab.length;i++) { 
 			if(!(tab[i]==0)){ 
-				des[tab[i]-1].setValeur(des[tab[i]-1].lancer()); // on relance le dé a la position donnée			
-				}
+				des[i].setValeur(des[i].lancer()); // on relance le dé a la position donnée			
+			}
 		}
 	}
 	
